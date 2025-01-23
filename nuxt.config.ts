@@ -1,32 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from 'nuxt/config'
-
 export default defineNuxtConfig({
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
-
+  extends: ['shadcn-docs-nuxt'],
   modules: [
-    '@unocss/nuxt',
-    '@nuxtjs/color-mode',
-    'nuxt-gtag',
-    '@nuxtjs/sitemap',
+    '@nuxt/eslint',
+    '@vueuse/motion/nuxt',
+    '@nuxt/scripts',
   ],
-
-  css: ['@unocss/reset/tailwind.css'],
-
-  colorMode: {
-    classSuffix: '',
-    storageKey: 'uni-helper-color-mode',
+  components: [
+    {
+      path: '@/components',
+      pathPrefix: false,
+      ignore: ['**/*.ts'],
+    },
+  ],
+  devtools: { enabled: true },
+  compatibilityDate: '2024-07-06',
+  eslint: {
+    config: {
+      stylistic: true,
+    },
   },
-
-  site: {
-    url: 'https://uni-helper.js.org',
-  },
-
-  gtag: {
-    id: 'G-249B95M763',
-  },
-
-  compatibilityDate: '2024-08-01',
 })
