@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@vueuse/motion/nuxt',
+    '@nuxt/content',
     '@nuxt/scripts',
   ],
   components: [
